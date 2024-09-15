@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <title>First Flusk step</title>
+  </head>
+  <body>
+    <h1>Hello, {{name}}!</h1>
+    <form method="POST" action="/greet">
+      <input type="text" name="username" placeholder="Enter your name" />
+      <input type="submit" value="Greet me!" />
+    </form>
+    <p></p>
+
+    <form method="POST" action="/add_user">
+      <p>
+        <input type="text" name="username" placeholder="Enter your name" />
+      </p>
+      <p>
+        <input type="email" name="email" placeholder="Enter your email" />
+      </p>
+      <button type="submit">Add User!</button>
+    </form>
+  </body>
+</html>

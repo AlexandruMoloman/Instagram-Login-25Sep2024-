@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Registration</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+            alt="Instagram Logo"
+            width="30"
+            height="30"
+          />
+          Instagram
+        </a>
+      </nav>
+
+      <!-- Main content -->
+      <div class="text-center">
+        <h1 class="mb-4">Welcome to Instagram, {{ name }}!</h1>
+
+        <!-- Greet form -->
+        <form method="POST" action="/greet" class="mb-4">
+          <div class="mb-3">
+            <input type="text" name="username" class="form-control" placeholder="Enter your name" />
+          </div>
+          <button type="submit" class="btn btn-primary">Greet me!</button>
+        </form>
+
+        <!-- Add User form -->
+        <form method="POST" action="/add_user" class="mb-4">
+          <div class="mb-3">
+            <input type="text" name="username" class="form-control" placeholder="Enter your name" />
+          </div>
+          <div class="mb-3">
+            <input type="email" name="email" class="form-control" placeholder="Enter your email" />
+          </div>
+          <button type="submit" class="btn btn-success">Add User!</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Подключение Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

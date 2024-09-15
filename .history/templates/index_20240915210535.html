@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First Flusk step</title>
+  </head>
+  <body>
+    <h1>Hello, {{name}}!</h1>
+    <form method="POST" action="/greet">
+      <input type="text" name="username" placeholder="Enter your name" />
+      <input type="submit" value="Greet me!" />
+    </form>
+    <p></p>
+    <form method="POST" action="/add-user">
+      <input type="text" name="username" placeholder="Enter your name" />
+      <input type="submit" value="Add User!" />
+    </form>
+  </body>
+</html>

