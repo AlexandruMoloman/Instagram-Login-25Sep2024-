@@ -8,7 +8,6 @@ import os
 load_dotenv('ini.env')  # Загрузка переменных из .env
 
 app = Flask(__name__)
-app.config['SECRET_KEY']='Goporhero5bugs5w'
 
 # Настройка подключения к базе данных MySQL
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
